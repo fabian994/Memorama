@@ -33,12 +33,14 @@ def change_pic(btn, File, Events, Solucion, ParesDescubiertos):
 		Events.pop(0);
 	
 	if Events in Solucion:
-		ParesDescubiertos.append(Events);
+		ParesDescubiertos.append(Events[0]);
+		ParesDescubiertos.append(Events[1]);
 	
-	for pares in ParesDescubiertos:
-		if not Events in Solucion:
-			# espero 2000ms para hacer el reset
-			root.after(2000, reset); 
+	print(ParesDescubiertos)
+	
+	if not Events[-1] in ParesDescubiertos:
+		# espero 2000ms para hacer el reset
+		root.after(2000, reset); 
 		
 
 Cartas = glob.glob('./DATA/*.png');
